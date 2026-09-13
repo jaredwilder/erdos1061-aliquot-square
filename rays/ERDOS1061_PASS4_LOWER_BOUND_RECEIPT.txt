@@ -1,0 +1,10 @@
+PASS
+rows=43 new_vs_existing=37
+new_coefficient_decimal≈4.79586024178362e-06
+rigorous_combined_lower_bound>2295497372037/1000000000000
+rigorous_combined_lower_bound_decimal>2.295497372037
+
+Archived exact receipt identity:
+SHA-256 249e5904035f5df3fcacbf4746ed36be13fd1eb48a3cc3179ba00137c43fc686
+
+This compact public receipt records the independently rerun 43-row aliquot-square generator upgrade. The exact 43-row payload is tracked for separate byte mirroring; this file does not substitute for that payload.
