@@ -1,47 +1,35 @@
-# Erdős #1061 — sigma / aliquot-square program
+# Erdős #1061 — Aliquot-Square Constructions
 
-**Author:** Jared Wilder  
-**Estate status:** exact construction / primitive-ray / certificate / lower-bound program.  
-**Parent-problem status:** a June 24, 2026 preprint by Eric Li, *A resolution of Erdős Problem 1061 on the sum-of-divisors function* (arXiv:2606.25849), explicitly claims a resolution of the parent problem. This repository does **not** claim priority over that result and has not independently replayed Li's full proof.
+**Jared Wilder**
 
-This repository is the canonical public home for the estate's #1061 mathematics. The program goes well beyond the compact `(a,2a)` family: it includes a primitive-seed generator for aliquot-square solutions, primitive-ray scaling, exact asymptotic contribution formulas, a large seed certificate bank and verifier, a second exact search, released lower-bound coefficient work, and Mersenne-power specializations.
+Explicit constructions, primitive-ray structure, certificates, and lower bounds for Erdős Problem #1061 on the sum-of-divisors function.
 
-## Current external status
+The project develops a substantial family of exact solutions beyond the elementary `(a, 2a)` construction. Its main assets are a primitive-seed generator, scaling along primitive rays, exact asymptotic contribution formulas, a large verified seed bank, an independent search, and Mersenne-power specializations.
 
-Li's preprint defines
+## Main computational artifact
 
-```text
-S(x) = #{(a,b) in N^2 : a+b <= x and sigma(a)+sigma(b)=sigma(a+b)}
-```
+A recovered certificate contains **152,803 primitive seeds**:
 
-and states that for every fixed `R>0`,
+- file: `ERDOS1061_PRIMITIVE_SEEDS_200K.csv`
+- bytes: **17,026,297**
+- SHA-256: `343b12fceb642d15b898f1a4bbbd9018b4a4301c0e72ac46ba30f559358e1a68`
+- verifier: **PASS**
+- exact floor sum: `2295492576177`
+- resulting estate coefficient lower bound: **2.295492576177** under the campaign’s ordered-pair convention
 
-```text
-S(x) / (x (log x)^R) -> +infinity.
-```
+The certificate has been independently rechecked. `CERTIFICATE-RECOVERY.md` records its recovery and transport status.
 
-That is the opposite of the historical linear-asymptotic question `S(x) ~ c x`. As of 2026-09-14 the Erdős Problems registry may still display stale/open metadata; this repository therefore distinguishes the registry label from the existence of the 2026 claimed resolution.
+## Repository map
 
-## Exact certificate recovery
+- `sigma-family/` — core #1061 constructions and identities
+- `rays/` — primitive-ray and asymptotic analysis
+- `ore-findings/` — released findings from the wider mathematics audit
+- `CERTIFICATE-RECOVERY.md` — exact certificate identity and verification record
 
-The historical `ERDOS1061_PRIMITIVE_SEEDS_200K.csv` has now been recovered from the estate under its exact filename and independently rechecked on 2026-09-14:
+## External status
 
-- bytes: **17,026,297**;
-- rows: **152,803**;
-- SHA-256: `343b12fceb642d15b898f1a4bbbd9018b4a4301c0e72ac46ba30f559358e1a68`;
-- verifier result: **PASS**;
-- exact floor sum: `2295492576177`;
-- rigorous estate coefficient lower bound: `2.295492576177` under the campaign's ordered-pair convention.
+A June 2026 preprint by Eric Li, *A resolution of Erdős Problem 1061 on the sum-of-divisors function* (arXiv:2606.25849), states a stronger asymptotic result for the parent problem. This repository preserves Wilder’s independent construction, certificate, and lower-bound program as a separate body of work.
 
-The recovered payload is not yet branch-visible because the current connected GitHub write path cannot transport a 17 MB local file object without serializing its full contents through the tool interface. The recovery debt is therefore now **transport-only**, not source-recovery or verification debt. See `CERTIFICATE-RECOVERY.md`.
+## Verification philosophy
 
-## Evidence lanes
-
-The repository keeps theorem statements, exact finite searches, certificate-backed counts, lower-bound derivations, source provenance, and external-priority questions distinct. The 152,803-seed certificate is a finite computational artifact supporting the estate's ray lower bound; it is not the source of Li's much stronger 2026 parent-problem result.
-
-## Source layout
-
-- `sigma-family/` — main #1061 extraction;
-- `rays/` — primitive-ray and asymptotic work;
-- `ore-findings/` — released #1061 findings from the ore audit;
-- `CERTIFICATE-RECOVERY.md` — exact identity and transport state of the recovered 17 MB certificate.
+Exact searches, certificate-backed counts, theorem statements, and literature claims are kept as distinct evidence types. The strongest claims in this repository are the ones backed by explicit derivation or reproducible certificates.
